@@ -1,0 +1,37 @@
+<a href="{{post.permalink}}">
+    <div class="posts__post">
+        {% if post.thumbnail %}
+            <div class="posts__post__image">
+                <img src="{{ post.thumbnail }}" alt="{{ post.title }}"/>
+            </div>
+        {% endif %}
+        <div>
+            {% if post.post_type == 'post' %} <time class="posts__post__date">{{ post.date }}</time> {% endif %}
+            <h3 class="posts__post__title">{{ post.title }}</h3>
+            {% if post.category %}
+                <div class="posts__post__cats cats">
+                    {% for key,categories in post.category %}
+                        {% for category in categories %}
+                            <span class="posts__post__cats__cat cats__cat cats__cat--{{key}}">{{ category.name }}</span>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if post.tag %}
+                <div class="posts__post__tags tags">
+                    {% for key,tags in post.tag %}
+                        {% for tag in tags %}
+                            <span class="posts__post__tags__tag tags__tag tags__tag--{{key}}">{{ tag.name }} </span>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% block custom_field %}{% endblock %}
+            {% if post.post_type == 'post' or post.post_type == 'page' %}
+                <div class="posts__post__content">
+                    {{ post.archive_content | raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</a>

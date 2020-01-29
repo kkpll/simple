@@ -1,0 +1,10 @@
+.breadcrumb{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.breadcrumb li a{
+    display:block;
+    text-decoration:underline;
+}

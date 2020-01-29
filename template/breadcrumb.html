@@ -1,0 +1,11 @@
+{% if breadcrumb %}
+    <ul class="breadcrumb">
+        {% for bc in breadcrumb %}
+            {% if bc.link %}
+                <li><a href="{{bc.link}}">{{bc.text}}</a></li> /
+            {% else %}
+                <li><span>{{bc.text}}</span></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}

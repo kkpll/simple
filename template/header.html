@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name = "keywords" content="{{ keywords }}" />
+        <meta name = "description" content="{{ description }}" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>{% if title %}{{ title }}｜{% endif %}{{ site_name }}</title>
+        {{ wp_head() }}
+    </head>
+    <body {{ body_class() }}>
+        ※ヘッダー

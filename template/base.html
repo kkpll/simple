@@ -1,0 +1,14 @@
+{% set site_name = get_bloginfo() %}
+{% set themeurl = themeurl() %}
+{% set homeurl = homeurl() %}
+{% set is_home = is_home() %}
+{% set is_archive = is_archive() %}
+{% set is_search = is_search() %}
+{% include "header.html" %}
+<div class="wrapper">
+    {% include 'breadcrumb.html' %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</div>
+{% include "footer.html" %}

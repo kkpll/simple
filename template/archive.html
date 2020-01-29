@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if posts %}
+        <div class="posts">
+            {% for post in posts %}
+                {% set post = get_the_data(post.ID) %}
+                {% if post.post_type == 'case' %}
+                    ※カスタム投稿の場合の処理
+                {% else %}
+                    {% include 'post.html' with { 'post': post } %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {{ pagination( query ) }}
+    {% else %}
+        {% include 'nopost.html' %}
+    {% endif %}
+{% endblock %}

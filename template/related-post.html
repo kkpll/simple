@@ -1,0 +1,11 @@
+{% for related_post in related_posts %}
+    <div class="relatedposts">
+        <h3>{{related_post.title}}の関連記事はこちら</h3>
+        <ul>
+        {% for post in related_post.post %}
+            {% set post = getPost( post ) %}
+            <li><a href="{{post.permalink}}">{{post.title}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endfor %}

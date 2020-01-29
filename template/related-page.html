@@ -1,0 +1,19 @@
+{% macro getRelatedPages(related_posts) %}
+    {% from _self import getRelatedPages %}
+    {% for key,posts in related_posts %}
+        {% set post = getPost( key ) %}
+        <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+        {% if posts != null %}
+            <ul>
+                {{ getRelatedPages(posts) }}
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+{% from _self import getRelatedPages %}
+<div class="relatedposts">
+    <h3>{{related_posts.title}}の関連記事はこちら</h3>
+    <ul>
+        {{ getRelatedPages(related_posts.pages) }}
+    </ul>
+</div>

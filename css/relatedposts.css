@@ -1,0 +1,22 @@
+.relatedposts{}
+
+.relatedposts h2,
+.relatedposts h3,
+.relatedposts h4,
+.relatedposts h5,
+.relatedposts h6{
+    margin-bottom:1em;
+}
+
+
+.relatedposts ul ul{
+    margin-left:1.5em;
+}
+
+.relatedposts li{
+    margin-bottom:1em;
+}
+
+.relatedposts li a{
+    display:block;
+}

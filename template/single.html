@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{post.title}}</h2>
+    {% if terms.category %}
+        <div class="cats">
+            {% for key,categories in terms.category %}
+                {% for category in categories %}
+                    <a href="{{ category.link }}"><span class="cats__cat cats__cat--{{key}}">{{ category.name }}</span></a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if terms.tag %}
+        <div class="tags">
+            {% for key,tags in terms.tag %}
+                {% for tag in tags %}
+                    <a href="{{ tag.link }}"><span class="tags__tag tags__tag--{{key}}">{{ tag.name }}</span></a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% block custom_field %}{% endblock %}
+    {{ post.content | raw }}
+    {% include 'related-post.html' %}
+{% endblock %}
